@@ -1,0 +1,13 @@
+{% extends 'base.html' %} {% block body %}
+<div class="flex flex-col sm:grid sm:grid-cols-2 gap-4 max-w-[600px] mx-auto">
+  {% for book in books %}
+
+  <div class="bg-white drop-shadow-md py-2 px-4 flex flex-col gap-3 rounded-md">
+    <!-- <img width="100" height="100" src="{{book.cover}}" alt="" /> -->
+    <p>{{book.name}}</p>
+    <span>{{book.author}}</span>
+    <a class="px-3 py-1 bg-green-400 text-white rounded-md" href="">Read Now</a>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

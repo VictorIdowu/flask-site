@@ -1,0 +1,25 @@
+{% extends 'base.html' %} {% block body %}
+<form
+  action="/submitbook"
+  class="flex flex-col gap-3 max-w-[300px] mx-auto"
+  method="POST"
+  enctype="multipart/form-data"
+>
+  <h1 class="bg-gray-700 text-white py-1 w-full text-center">Add a book</h1>
+  <input
+    class="focus:outline-none border border-gray-600 pl-2 rounded-md"
+    type="text"
+    name="name"
+    placeholder="Enter book name"
+  />
+  <input
+    class="focus:outline-none border border-gray-600 pl-2 rounded-md"
+    type="text"
+    name="author"
+    placeholder="Enter author's name"
+  />
+  <button class="bg-gray-700 text-white py-1 rounded-md" type="submit">
+    Add book
+  </button>
+</form>
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends 'base.html' %} {% block body %}
+<div class="flex flex-col gap-4 max-w-[600px] mx-auto">
+  {% for book in books %}
+
+  <div
+    class="bg-white drop-shadow-md py-2 px-4 flex flex-col gap-3 w-fit rounded-md"
+  >
+    <p>{{book.name}}</p>
+
+    <form class="flex gap-2" action="/update" method="POST">
+      <input
+        class="focus:outline-none border border-gray-600 pl-2 rounded-md"
+        type="hidden"
+        value="{{book.name}}"
+        name="oldname"
+      />
+      <input
+        class="focus:outline-none border border-gray-600 pl-2 rounded-md"
+        type="text"
+        value="{{book.name}}"
+        name="newname"
+      />
+
+      <input
+        class="focus:outline-none border border-gray-600 pl-2 rounded-md"
+        type="text"
+        value="{{book.author}}"
+        name="newauthor"
+      />
+      <button class="bg-gray-700 text-white py-1 px-3 rounded-md" type="submit">
+        Update
+      </button>
+    </form>
+
+    <form action="/delete" method="POST">
+      <input
+        class="focus:outline-none border border-gray-600 pl-2 rounded-md"
+        type="hidden"
+        value="{{book.name}}"
+        name="name"
+      />
+      <button class="bg-red-700 text-white py-1 px-3 rounded-md" type="submit">
+        Delete
+      </button>
+    </form>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}
